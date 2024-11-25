@@ -1,7 +1,8 @@
 <?php
+
 namespace App\Operator;
 
-use App\IOperator;
+use App\api\IOperator;
 
 class Division implements IOperator
 {
@@ -11,5 +12,15 @@ class Division implements IOperator
             throw new \InvalidArgumentException("Division by zero.");
         }
         return $a / $b;
+    }
+
+    public static function getPrecedence()
+    {
+        return 2;
+    }
+
+    public static function getAssociativity()
+    {
+        return 'L';
     }
 }
